@@ -12,7 +12,7 @@ LOGGER = logging.getLogger()
 
 
 def tweet_pi_time(api):
-    """Tweets pi time.."""
+    """Tweets pi time."""
     try:
         api.update_status('It’s pi time!')
     except Exception:
