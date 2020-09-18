@@ -31,7 +31,9 @@ $ python3 -m venv env
 ```shell
 $ export ACCESS_TOKEN='your_access_token'
 $ export ACCESS_TOKEN_SECRET='your_access_token_secret
-'                                                     $ export CONSUMER_KEY='your_consumer_key'             $ export CONSUMER_SECRET='your_consumer_secret'
+'
+$ export CONSUMER_KEY='your_consumer_key'
+$ export CONSUMER_SECRET='your_consumer_secret'
 ```
 
 - Now activate the virtual environment and install the dependencies:
@@ -62,7 +64,8 @@ $ source env/bin/activate
 File | Information
 ---- | -----------
 `bots/twitter_auth.py` | Treats the authentication on API's Twitter, used in all bots.
-`bots/fav_mention.py` | Automatically favorites a tweet when mentioned.                                     `bots/tweet_pi_time.py` | Tweets the pi time of the day (when is 3:14).
+`bots/fav_mention.py` | Automatically favorites a tweet when mentioned.
+`bots/tweet_pi_time.py` | Tweets the pi time of the day (when is 3:14).
 
 ---
 
