@@ -2,7 +2,9 @@
 
 import time
 import logging
-from datetime import datetime, timedelta
+import functools
+
+import schedule
 
 from twitter_auth import create_api
 
@@ -11,8 +13,19 @@ logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger()
 
 
+def with_logging(func):
+    """Add generic logging to func."""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        LOGGER.info('Waiting until pi time again...')
+        return result
+    return wrapper
+
+
+@with_logging
 def tweet_pi_time(api):
-    """Tweets pi time."""
+    """Tweet the pi time."""
     try:
         api.update_status('It’s pi time!')
     except Exception:
@@ -21,13 +34,8 @@ def tweet_pi_time(api):
 
 if __name__ == '__main__':
     api = create_api()
+    # Tweet every day at 03:14 (pi time!).
+    schedule.every().day.at('03:14').do(tweet_pi_time, api=api)
     while True:
-        now = datetime.now()
-        pi_time = now.replace(hour=3, minute=14, second=0, microsecond=0)
-        if now >= pi_time:
-            pi_time += timedelta(days=1)
-        # Sleep at 3:14 of the day (pi time!).
-        time.sleep((pi_time - now).total_seconds())
-
-        tweet_pi_time(api)
-        LOGGER.info('Waiting until pi time again...')
+        schedule.run_pending()
+        time.sleep(1)

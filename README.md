@@ -6,7 +6,7 @@ My first project working with [tweepy](https://www.tweepy.org/), and was very sa
 
 ## Installation
 
-- You will need the credentials for authentication on API's Twitter, you can check [this](https://realpython.com/twitter-bot-python-tweepy/#creating-twitter-api-authentication-credentials) to know jow to get this.
+- You will need the credentials for authentication on API's Twitter, you can check [this](https://realpython.com/twitter-bot-python-tweepy/#creating-twitter-api-authentication-credentials) to know how to get the credentials.
 
 - If you will only uses the bots locally, just ignore the files `Procfile` and `runtime.txt`, they are for deploy on Heroku only.
 
@@ -38,7 +38,7 @@ $ export CONSUMER_SECRET='your_consumer_secret'
 
 - Now activate the virtual environment and install the dependencies:
 
-> this will install tweepy.
+> this will install tweepy and schedule.
 
 ```shell
 $ source env/bin/activate
@@ -61,7 +61,7 @@ $ source env/bin/activate
 
 ## Documentation
 
-File | Information
+File | Description
 ---- | -----------
 `bots/twitter_auth.py` | Treats the authentication on API's Twitter, used in all bots.
 `bots/fav_mention.py` | Automatically favorites a tweet when mentioned.
