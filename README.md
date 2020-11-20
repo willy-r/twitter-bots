@@ -55,7 +55,7 @@ $ source env/bin/activate
 
 ## Usage
 
-- Go to `bots/` directory and use:
+Go to `bots/` directory and use:
 
 > change `bot_name.py` with the bot name you want. To stop the bot use `CTRL + C`.
 
