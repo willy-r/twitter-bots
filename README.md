@@ -18,6 +18,12 @@ My first project working with [tweepy](https://www.tweepy.org/), and was very sa
 
 ### Setup
 
+- Go to `twitter-bots` directory:
+
+```shell
+$ cd twitter-bots
+```
+
 - I highly recommend you to setup a virtual environment first:
 
 > env is the name of my VE, you can choose whatever you want.
