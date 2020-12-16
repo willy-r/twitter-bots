@@ -1,29 +1,11 @@
-"""Tweet pi time bot."""
-
 import time
-import logging
-import functools
 
 import schedule
 
-from twitter_auth import create_api
+from config import create_api, add_logging, LOGGER
 
 
-logging.basicConfig(level=logging.INFO)
-LOGGER = logging.getLogger()
-
-
-def with_logging(func):
-    """Add generic logging to func."""
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        result = func(*args, **kwargs)
-        LOGGER.info('Waiting until pi time again...')
-        return result
-    return wrapper
-
-
-@with_logging
+@add_logging(before='Waiting until next run...')
 def tweet_pi_time(api):
     """Tweet the pi time."""
     try:
@@ -34,8 +16,7 @@ def tweet_pi_time(api):
 
 if __name__ == '__main__':
     api = create_api()
-    # Tweet every day at 03:14 (pi time!).
-    schedule.every().day.at('03:14').do(tweet_pi_time, api=api)
+    schedule.every().wednesday.at('03:14').do(tweet_pi_time, api=api)
     while True:
         schedule.run_pending()
         time.sleep(1)

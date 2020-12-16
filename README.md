@@ -20,8 +20,6 @@ My first project working with [tweepy](https://www.tweepy.org/), and was very sa
 
 - I highly recommend you to setup a virtual environment first:
 
-> env is the name of my VE, you can choose whatever you want.
-
 ```shell
 $ python3 -m venv env
 ```
@@ -37,8 +35,6 @@ $ export CONSUMER_SECRET='your_consumer_secret'
 ```
 
 - Now activate the virtual environment and install the dependencies:
-
-> this will install tweepy and schedule.
 
 ```shell
 $ source env/bin/activate
@@ -59,13 +55,14 @@ $ source env/bin/activate
 
 ---
 
-## Documentation
+## Current Bots
 
-File | Description
+To add more just follow the code on this bots:
+
+Bot name | Description
 ---- | -----------
-`bots/twitter_auth.py` | Treats the authentication on API's Twitter, used in all bots.
-`bots/fav_mention.py` | Automatically favorites a tweet when mentioned.
-`bots/tweet_pi_time.py` | Tweets the pi time of the day (when is 3:14).
+[`bots/fav\_mention.py`](bots/fav\_mentions.py) | Automatically favorites a tweet when mentioned.
+[`bots/tweet\_pi\_time.py`](bots/tweet\_pi\_time.py) | Tweets the pi time of a day.
 
 ---
 
@@ -76,4 +73,3 @@ Reach out to me at one of the following places!
 - Twitter at <a href="https://twitter.com/lliw_r?s=09" target="_blank">`@lliw_r`</a>
 
 ---
-

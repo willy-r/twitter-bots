@@ -1,38 +1,23 @@
-"""Fav mentions bot."""
-
 import time
-import logging
-import functools
 
 import schedule
 
-from twitter_auth import create_api
+from config import create_api, add_logging, LOGGER
 
 
-logging.basicConfig(level=logging.INFO)
-LOGGER = logging.getLogger()
-
-
-def with_logging(func):
-    """Add generic logging to func."""
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        LOGGER.info('Retrieving mentions...')
-        result = func(*args, **kwargs)
-        LOGGER.info('Waiting...')
-        return result
-    return wrapper
-
-
-@with_logging
-def check_mentions(api):
+@add_logging(
+    before='Retrieving mentions...',
+    after='Waiting for new mentions...',
+)
+def check_mentions(api) -> None:
     """Checks for new mentions and favorite this mentions."""
+    # Retrieve the last 20 mentions.
     mentions = api.mentions_timeline()
     for tweet in mentions:
         if not tweet.favorited:
             try:
                 tweet.favorite()
-                LOGGER.info(f'{tweet.id} from {tweet.user.name} favorited!')
+                LOGGER.info(f'Tweet from {tweet.user.name} favorited!')
             except Exception:
                 LOGGER.error('Error on fav', exc_info=True)
 
