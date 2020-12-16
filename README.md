@@ -18,6 +18,12 @@ My first project working with [tweepy](https://www.tweepy.org/), and was very sa
 
 ### Setup
 
+- Go to `twitter-bots` directory:
+
+```shell
+$ cd twitter-bots
+```
+
 - I highly recommend you to setup a virtual environment first:
 
 ```shell
@@ -45,7 +51,7 @@ $ source env/bin/activate
 
 ## Usage
 
-- Go to `bots/` directory and use:
+Go to `bots/` directory and use:
 
 > change `bot_name.py` with the bot name you want. To stop the bot use `CTRL + C`.
 
