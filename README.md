@@ -67,8 +67,8 @@ To add more just follow the code on this bots:
 
 Bot name | Description
 ---- | -----------
-[`bots/fav\_mention.py`](bots/fav\_mentions.py) | Automatically favorites a tweet when mentioned.
-[`bots/tweet\_pi\_time.py`](bots/tweet\_pi\_time.py) | Tweets the pi time of a day.
+[`bots/fav_mention.py`](bots/fav\_mentions.py) | Automatically favorites a tweet when mentioned.
+[`bots/tweet_pi_time.py`](bots/tweet\_pi\_time.py) | Tweets the pi time of a day.
 
 ---
 
